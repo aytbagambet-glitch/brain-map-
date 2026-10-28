@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#153b26">
+<title>Brain Map Challenge</title>
+<link rel="stylesheet" href="styles.css">
+<script src="config.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<main class="board" aria-label="Brain Map Challenge interactive activity">
+  <header class="heading"><h1>BRAIN MAP CHALLENGE</h1><p>Choose a label. Then click the matching point.</p></header>
+  <div class="labels" id="labels" aria-label="Brain area labels"></div>
+  <section class="diagram" aria-label="Interactive brain diagram">
+    <div class="direction anterior">Anterior<span aria-hidden="true">←</span></div>
+    <div class="direction posterior">Posterior<span aria-hidden="true">→</span></div>
+    <div class="brain-wrap" id="brain-wrap"><img id="brain" alt="Simplified side view of the brain. Six numbered points mark the areas to match; dashed outlines show approximate projections of deeper regions." draggable="false"><svg id="leader" viewBox="0 0 100 66.6667" preserveAspectRatio="none" aria-hidden="true"><line id="leader-line" x1="0" y1="0" x2="0" y2="0"/></svg><div id="points"></div><span id="callout" class="callout" hidden></span></div>
+    <p class="model-note">Simplified learning model.<br><span>Dashed outlines indicate deeper regions shown schematically.</span></p>
+  </section>
+  <aside class="how-to"><h2>HOW TO PLAY</h2><ol><li><span>1</span>Choose a label</li><li><span>2</span>Click a point</li><li><span>3</span>Check your answer</li></ol></aside>
+  <aside class="challenge"><h2>NEXT CHALLENGE</h2><div class="challenge-example"><span id="sense-icon" aria-hidden="true">♫</span><p id="challenge-sentence">You hear your<br>favourite song.</p></div><button id="open-challenge" class="outline-button">Choose an area</button><span id="situation-progress" class="situation-progress" hidden></span></aside>
+  <section id="feedback" class="feedback neutral" role="status" aria-live="polite" aria-atomic="true"><span id="feedback-symbol" class="feedback-symbol" aria-hidden="true">i</span><div class="feedback-divider"></div><p id="feedback-text">Choose a label to begin.</p></section>
+  <div class="progress-wrap"><span id="progress-text">Progress: 0/6</span><progress id="progress" value="0" max="6" aria-label="Correct brain labels"></progress></div>
+  <div class="controls"><button id="try-again" class="outline-button">Try again</button><button id="reset" class="outline-button reset">Reset</button></div>
+</main>
+<dialog id="situation-dialog" aria-labelledby="dialog-title">
+  <div class="dialog-top"><div><p class="dialog-kicker">NEXT CHALLENGE</p><h2 id="dialog-title">Which brain area is involved?</h2></div><button id="close-dialog" class="close-button" aria-label="Close situations">×</button></div>
+  <div class="dialog-main"><div><img id="situation-image" alt=""><div class="dialog-nav"><button id="previous" class="outline-button">← Previous</button><span id="counter"></span><button id="next" class="outline-button">Next →</button></div></div><div class="dialog-answers"><p>Choose the brain area most closely linked to this situation.</p><div id="situation-answers"></div><p id="situation-feedback" role="status" aria-live="polite"></p><p class="together-note">Several areas work together. Focus on the main function described.</p></div></div>
+</dialog>
+</body>
+</html>
